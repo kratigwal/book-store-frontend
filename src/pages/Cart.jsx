@@ -16,7 +16,7 @@ const Cart = () => {
 
   const fetchCart = async () => {
     try {
-      const res = await axios.get("http://localhost:1000/api/v1/get-user-cart", { headers });
+      const res = await axios.get("https://book-store-backend-2m9y.onrender.com/api/v1/get-user-cart", { headers });
       setCart(res.data.data);
       const totalAmount = res.data.data.reduce((sum, item) => sum + item.price, 0);
       setTotal(totalAmount);
@@ -32,7 +32,7 @@ const Cart = () => {
   const deleteItem = async (bookid) => {
     try {
       const response = await axios.put(
-        `http://localhost:1000/api/v1/remove-from-cart/${bookid}`,
+        `https://book-store-backend-2m9y.onrender.com/api/v1/remove-from-cart/${bookid}`,
         {},
         { headers }
       );
@@ -45,7 +45,7 @@ const Cart = () => {
 
   const PlaceOrder = async () => {
     try {
-      const response = await axios.post("http://localhost:1000/api/v1/place-order", { order: Cart }, { headers });
+      const response = await axios.post("https://book-store-backend-2m9y.onrender.com/api/v1/place-order", { order: Cart }, { headers });
       alert(response.data.message);
       navigate("/profile/orderHistory");
     } catch (error) {
@@ -71,7 +71,7 @@ const Cart = () => {
               <div className='flex w-full md:w-auto'>
                 <img
                   src={
-                    items.url?.startsWith("http") ? items.url : `http://localhost:1000${items.url}`
+                    items.url?.startsWith("http") ? items.url : `https://book-store-backend-2m9y.onrender.com${items.url}`
                   }
                   alt={items.title}
                   className='w-24 h-32 object-cover rounded mr-4'
