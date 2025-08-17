@@ -11,7 +11,7 @@ const AllBooks = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get("http://localhost:1000/api/v1/get-all-books");
+        const response = await axios.get("https://book-store-backend-2m9y.onrender.com/api/v1/get-all-books");
         console.log("Fetched books:", response.data.data);
         setData(response.data.data);
       } catch (err) {
