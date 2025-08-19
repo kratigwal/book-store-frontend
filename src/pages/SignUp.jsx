@@ -31,7 +31,7 @@ const SignUp= () => {
 
              }
            else{
-            const response = await axios.post("http://localhost:1000/api/v1/sign-up", Values);
+            const response = await axios.post("https://book-store-backend-2m9y.onrender.com/api/v1/sign-up", Values);
             alert(response.data.message);
             navigate("/Login");
               
