@@ -9,7 +9,7 @@ const RecentleyAdded = () => {
     const [Data,setData] = useState();
     useEffect(() => {
         const fetch = async () => {
-    const response = await axios.get("http://localhost:1000/api/v1/get-recent-books");
+    const response = await axios.get("https://book-store-backend-2m9y.onrender.com/api/v1/get-recent-books");
 
 
             setData(response.data.data);
@@ -34,4 +34,4 @@ const RecentleyAdded = () => {
   )
 }
 
-export default RecentleyAdded
+export default RecentleyAdded;
