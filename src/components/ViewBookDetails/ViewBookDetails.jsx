@@ -19,7 +19,7 @@ const ViewBookDetails = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get(`http://localhost:1000/api/v1/get-book-by-id/${id}`);
+        const response = await axios.get(`https://book-store-backend-2m9y.onrender.com/api/v1/get-book-by-id/${id}`);
         setData(response.data.data);
         setLoading(false);
       } catch (error) {
@@ -35,18 +35,18 @@ const ViewBookDetails = () => {
     bookid:id,
   };
   const handleFavourite = async ()=>{
-    const response = await axios.put("http://localhost:1000/api/v1/add-book-to-favourite",{},{headers});
+    const response = await axios.put("https://book-store-backend-2m9y.onrender.com/api/v1/add-book-to-favourite",{},{headers});
     alert(response.data.message);
   }
   const handleCart = async ()=>{
-    const response = await axios.put("http://localhost:1000/api/v1/add-to-cart",{},{headers});
+    const response = await axios.put("https://book-store-backend-2m9y.onrender.com/api/v1/add-to-cart",{},{headers});
     alert(response.data.message);
   };
 
   const removeFromCart = async (bookid) => {
   try {
     const response = await axios.put(
-      `http://localhost:1000/api/v1/remove-from-cart/${bookid}`,
+      `https://book-store-backend-2m9y.onrender.com/api/v1/remove-from-cart/${bookid}`,
       {},
       { headers }
     );
@@ -60,7 +60,7 @@ const ViewBookDetails = () => {
 
   const deleteBook = async () =>{
     const response = await axios.delete(
-      "http://localhost:1000/api/v1/delete-book",
+      "https://book-store-backend-2m9y.onrender.com/api/v1/delete-book",
       {headers}
     );
     alert(response.data.message);
