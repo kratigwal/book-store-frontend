@@ -23,7 +23,7 @@ const AllOrders = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get('https://book-store-backend-2m9y.onrender.com/get-all-orders', { headers });
+        const response = await axios.get('https://book-store-backend-2m9y.onrender.com/api/v1/get-all-orders', { headers });
         setAllOrders(response.data.data);
       } catch (error) {
         console.error('Failed to fetch orders:', error);
@@ -41,7 +41,7 @@ const AllOrders = () => {
     const id = allOrders[i]._id;
     try {
       const response = await axios.put(
-        `https://book-store-backend-2m9y.onrender.com/update-status/${id}`,
+        `https://book-store-backend-2m9y.onrender.com/api/v1/update-status/${id}`,
         values,
         { headers }
       );
